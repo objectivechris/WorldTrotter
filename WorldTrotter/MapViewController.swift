@@ -30,7 +30,7 @@ class MapViewController: UIViewController {
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControl)
         
-        let topConstraint = segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8)
+        let topConstraint = segmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8)
         let margins = view.layoutMarginsGuide
         let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
         let trailingAnchor = segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
@@ -45,7 +45,7 @@ class MapViewController: UIViewController {
         
     }
     
-    func mapTypeChanged(_ segControl: UISegmentedControl) {
+    @objc func mapTypeChanged(_ segControl: UISegmentedControl) {
         switch segControl.selectedSegmentIndex {
         case 0:
             mapView.mapType = .standard
